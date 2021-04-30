@@ -6,7 +6,7 @@ output:
     code_folding: hide
 theme: sandstone
 params: 
-    arquivo_dados: "data/sdsu.csv"
+    arquivo_dados: "data/wku.csv"
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -67,7 +67,8 @@ iat %>%
 ```{r}
 agrupado = iat %>% 
     group_by(sex) %>% 
-    summarise(media = mean(d_art), 
+    summarise(media = mean(d_art),
+              dvp = sd(d_art), n=n(),
               .groups = "drop")
 
 agrupado
@@ -145,11 +146,11 @@ grid.arrange(p1, p2, ncol = 2)
 
 ```
 
+
 ### Conclusão
 
-**Apague esse parágrafo, e no seguinte substitua no mínimo as partes em negrito por texto seu. Pode substituir o quanto quiser**.
 
-Em média, as mulheres que participaram do experimento tiveram uma associação implícita (medida pelo IAT) com a matemática **positiva/negativa** e **fraca/média/forte** (**média XXX, desv. padrão YYY, N = ZZZ**). Homens tiveram uma associação **positiva/negativa** com a matemática, portanto **maior/menor** que a das mulheres (**média XXX , desv. padrão YYY, N = ZZZ**). Houve portanto uma **grande/considerável/pequena/desprezível** diferença entre homens e mulheres (**diferença das médias XXXX, 95% CI [CCC, DDD]**). Os dados de nosso experimento portanto apontam que... **COMPLETE AQUI**.
+Em média, as mulheres que participaram do experimento tiveram uma associação implícita (medida pelo IAT) com a matemática **negativa** e **média** (**média 0.415, desv. padrão 0.537, N = 69**). Homens tiveram uma associação **negativa** com a matemática, portanto **menor** que a das mulheres (**média 0.229 , desv. padrão 0.584, N = 26**). Houve portanto uma **pequena** diferença entre homens e mulheres (**diferença das médias -0.1859866, 95% CI [-0.4199064, 0.1061985]**). Os dados de nosso experimento apontam que a partir dessa amostra,mulheres têm uma associação negativa mais forte, porém não é claro se essa diferença é grande, moderada ou pequena. É necessário coletar mais dados para determinar se a diferença é relevante ou negligenciável
 
 --- 
 *Exemplos de possíveis conclusões para completar*
